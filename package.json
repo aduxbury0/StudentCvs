@@ -1,0 +1,27 @@
+{
+  "name": "student-cvs",
+  "version": "1.0.0",
+  "description": "A sharing platform for student CVs",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/aduxbury0/student-cvs.git"
+  },
+  "author": "Alexander Duxbury",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://gitlab.com/aduxbury0/student-cvs/issues"
+  },
+  "homepage": "https://gitlab.com/aduxbury0/student-cvs#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "express-handlebars": "^3.0.0"
+  },
+  "devDependencies": {
+    "jest": "^23.6.0"
+  }
+}
