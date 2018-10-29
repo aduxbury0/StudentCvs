@@ -18,17 +18,17 @@ router.get('/cv/edit', (req, res) => {
 
 });
 
-router.get('/cv/view', (req, res) => {
+router.get('/cv/:id', (req, res) => {
 
     res.render('cvs/view');
     
 });
 
-router.get('/cv/public', (req, res) => {
+router.get('/cv/all', (req, res) => {
 
-    res.render('cvs/view');
-    
-});
+    res.render('view-all');
+
+})
 
 
 module.exports = router;
