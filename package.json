@@ -23,6 +23,7 @@
     "mongoose": "^5.3.7"
   },
   "devDependencies": {
+    "eslint": "^5.8.0",
     "jest": "^23.6.0"
   }
 }
