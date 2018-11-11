@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const Scheme = mongoose.Schema;
+const Schema = mongoose.Schema;
 
 const UserSchema = new Schema({
 
@@ -7,7 +7,7 @@ const UserSchema = new Schema({
     password: String,
     userInfo: {
         forename: String,
-        Surname: String,
+        surname: String,
         dateOfBirth: String,
         emailAddress: String
     }
