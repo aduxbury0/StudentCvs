@@ -4,7 +4,8 @@
   "description": "A sharing platform for student CVs",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node_modules/.bin/jest --coverage",
+    "lint": "node_modules/.bin/eslint"
   },
   "repository": {
     "type": "git",
@@ -25,5 +26,40 @@
   "devDependencies": {
     "eslint": "^5.8.0",
     "jest": "^23.6.0"
+  },
+
+  "jest": {
+    "testEnviroment": "node",
+    "verbose": true,
+    "coverageThreshold": {
+      "global": {
+        "branches": 100,
+        "functions": 100,
+        "lines": 100,
+        "statements": -10
+      }
+    }
+  },
+
+  "eslintConfig": {
+    "env": {
+      "node": true
+    },
+    "rules": {
+      "eqeqeq": "error",
+      "no-undef": "error",
+      "comma-dangle": "warn",
+      "indent": ["error", "tab"],
+      "prefer-template": "warn",
+      "no-empty": "error",
+      "no-redeclare": "error",
+      "no-unused-vars": "error",
+      "no-const-assign": "error",
+      "no-var": "error",
+      "prefer-const": "warn",
+      "global-require": "error"
+    }
+
   }
+
 }
