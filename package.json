@@ -4,8 +4,9 @@
   "description": "A sharing platform for student CVs",
   "main": "app.js",
   "scripts": {
-    "test": "node_modules/.bin/jest --coverage",
-    "lint": "node_modules/.bin/eslint"
+    "test": "jest --coverage",
+    "lint": "eslint ./",
+    "lintfix": "eslint ./ --fix"
   },
   "repository": {
     "type": "git",
@@ -37,28 +38,6 @@
         "lines": 100,
         "statements": -10
       }
-    }
-  },
-  "eslintConfig": {
-    "env": {
-      "node": true
-    },
-    "rules": {
-      "eqeqeq": "error",
-      "no-undef": "error",
-      "comma-dangle": "warn",
-      "indent": [
-        "error",
-        "tab"
-      ],
-      "prefer-template": "warn",
-      "no-empty": "error",
-      "no-redeclare": "error",
-      "no-unused-vars": "error",
-      "no-const-assign": "error",
-      "no-var": "error",
-      "prefer-const": "warn",
-      "global-require": "error"
     }
   }
 }

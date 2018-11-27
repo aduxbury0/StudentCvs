@@ -12,8 +12,8 @@ const routeCV = require('./routes/CV');
 const app = express();
 
 mongoose.connect(keys.mongodbURI, {useNewUrlParser: true})
-    .then(() => console.log('MongoDB connected...'))
-    .catch((err) => console.log(err));
+	.then(() => console.log('MongoDB connected...'))
+	.catch((err) => console.log(err));
 
 //initialising routes
 app.use('/account', routeAccount);
@@ -37,7 +37,7 @@ app.use(bodyParser.json());
 // GET route HOME
 app.get('/', (req, res) => {
 
-    res.render('index');
+	res.render('index');
 
 });
 

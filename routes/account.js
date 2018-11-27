@@ -2,24 +2,24 @@ const router = require('express').Router();
 
 router.get('/', (req, res) => {
 
-    res.send('Account page');
+	res.send('Account page');
 
 });
 
 router.get('/login', (req, res) => {
 
-    res.send('login');
+	res.send('login');
 });
 
 router.get('/register', (req, res) => {
 
-    res.send('Register')
+	res.send('Register')
 
 });
 
 router.get('/logout', (req, res) => {
 
-    res.send('logout');
+	res.send('logout');
 
 });
 
