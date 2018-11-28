@@ -26,16 +26,17 @@
   },
   "devDependencies": {
     "eslint": "^5.8.0",
-    "jest": "^23.6.0"
+    "jest": "^23.6.0",
+    "mongodb-memory-server": "^2.7.3"
   },
   "jest": {
     "testEnviroment": "node",
     "verbose": true,
     "coverageThreshold": {
       "global": {
-        "branches": 100,
+        "branches": 80,
         "functions": 100,
-        "lines": 100,
+        "lines": 80,
         "statements": -10
       }
     }
