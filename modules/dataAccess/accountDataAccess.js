@@ -21,7 +21,7 @@ const accountAccess = {
 
     createAccount() {
         return new Promise((resolve, reject) => {
-
+            
 
         });
     }
@@ -29,3 +29,5 @@ const accountAccess = {
 }
 
 module.exports = accountAccess;
+
+

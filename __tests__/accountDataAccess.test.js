@@ -1,24 +1,42 @@
 const mongoose = require('mongoose');
-const mongoMemoryServer = require('mongodb-memory-server');
+const MongoMemoryServer = require('mongodb-memory-server');
 const User = require('../Schemas/User');
 const accDataAccess = require('../modules/dataAccess/accountDataAccess');
 
-let mongoServer;
+jest.setTimeout(60000);
 
-beforeAll(async () => {
-    mongoServer = new mongoMemoryServer();
+const mongoServer = new MongoMemoryServer();
+mongoose.Promise = Promise;
+mongoServer.getConnectionString().then((mongoUri) => {
+    const mongooseOpts = {
+        autoReconnect: true,
+        reconnectTries: Number.MAX_VALUE,
+        reconnectInterval: 1000, 
+    }
 
-    const mongoUri = await mongoServer.getConnectionString();
-    await mongoose.connect(mongoUri, (err) => {
-        if(err) console.log(err);
+    mongoose.connect(mongoUri, mongooseOpts);
+
+    mongoose.connection.on('error', (err) => {
+        if (e.message.code === 'ETIMEDOUT') {
+            console.log(e);
+            mongoose.connect(mongoUri, mongooseOpts);
+          }
+          console.log(e);
+    });
+    mongoose.connection.once('open', () => {
+        console.log(`MongoDB connected to ${mongoUri}`);
     });
 });
+
+
+// beforeAll(async () => {
+
+// });
 
 
 
 afterAll(() => {
     mongoose.disconnect();
-
 });
 
 describe('firstTest', () => {
