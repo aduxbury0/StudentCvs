@@ -1,45 +1,33 @@
 const mongoose = require('mongoose');
-const MongoMemoryServer = require('mongodb-memory-server');
+const keys = require('../keys/keys');
 const User = require('../Schemas/User');
 const accDataAccess = require('../modules/dataAccess/accountDataAccess');
 
-jest.setTimeout(60000);
-
-const mongoServer = new MongoMemoryServer();
-mongoose.Promise = Promise;
-mongoServer.getConnectionString().then((mongoUri) => {
-    const mongooseOpts = {
-        autoReconnect: true,
-        reconnectTries: Number.MAX_VALUE,
-        reconnectInterval: 1000, 
-    }
-
-    mongoose.connect(mongoUri, mongooseOpts);
-
-    mongoose.connection.on('error', (err) => {
-        if (e.message.code === 'ETIMEDOUT') {
-            console.log(e);
-            mongoose.connect(mongoUri, mongooseOpts);
-          }
-          console.log(e);
-    });
-    mongoose.connection.once('open', () => {
-        console.log(`MongoDB connected to ${mongoUri}`);
-    });
-});
-
-
-// beforeAll(async () => {
-
-// });
-
+beforeAll(() => {
+    mongoose.connect('mongodb://alex:Password1@ds141783.mlab.com:41783/student-cvs-testing', {useNewUrlParser: true})
+	.then(() => console.log('MongoDB connected...'))
+	.catch((err) => console.log(err));
+})
 
 
 afterAll(() => {
     mongoose.disconnect();
 });
 
+afterEach(() => {
+
+    User.deleteMany({})
+        .then(() => {
+
+        })
+        .catch(err => console.log(err));
+
+})
+
 describe('firstTest', () => {
+
+    const User = require('../Schemas/User');
+
 
     it('gets a user', async () => {
 
@@ -66,7 +54,13 @@ describe('firstTest', () => {
 
         try{
             const foundUser = await accDataAccess.singleAccount({username: 'adux'});
-            expect(foundUser).toEqual(expectedUser);
+            try{
+                expect(foundUser).toEqual(expectedUser);
+            }
+            catch(err) {
+                console.log(err);
+            }
+            
         }    
         catch(err) {
             console.log(err);

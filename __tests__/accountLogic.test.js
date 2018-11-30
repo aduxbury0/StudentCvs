@@ -1,6 +1,29 @@
 const accountLogic = require('../modules/businessLogic/accountLogic');
+const accountAccess = require('../modules/dataAccess/accountDataAccess');
+const sinon = require('sinon');
 
 describe('createUserLogic', () => {
+
+    beforeAll(() => {
+
+        expected = {
+            username: 'alex',
+            password: 'dux',
+            userInfo: {
+                forename: 'Alex',
+                surname: 'Duxbury',
+                dateOfBirth: '17/12/1995',
+                emailAddress: 'test@test.com'
+            }
+        }
+
+        this.createAccount = sinon.stub(accountAccess, 'createAccount').resolves(expected);
+
+    })
+
+    afterAll(() => {
+        this.createAccount.restore();
+    })
 
     test('check if correct user is created', async done => {
 
