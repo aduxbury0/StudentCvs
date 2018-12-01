@@ -24,4 +24,6 @@ const CVSchema = new Schema({
 
 });
 
-mongoose.model('CV', CVSchema);
+const cv = mongoose.model('CV', CVSchema);
+
+module.exports = cv;

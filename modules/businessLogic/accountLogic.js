@@ -15,15 +15,19 @@ module.exports = accountLogic = {
                 }
             }
             
-            accountAccess.createAccount(newUser)
-            .then((returnedUser) => {
-                resolve(returnedUser);
-            })
-            .catch(err => {
-                console.log(err);
-                reject(err);
-            });
-    
+            callCreateAccount(newUser);
+
+        });
+    },
+
+    callCreateAccount(newUser) {
+        accountAccess.createAccount(newUser)
+        .then((returnedUser) => {
+            resolve(returnedUser);
+        })
+        .catch(err => {
+            console.log(err);
+            reject(err);
         });
     }
 }

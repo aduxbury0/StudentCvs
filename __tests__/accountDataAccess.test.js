@@ -4,6 +4,7 @@ const User = require('../Schemas/User');
 const accDataAccess = require('../modules/dataAccess/accountDataAccess');
 
 beforeAll(() => {
+    //We use an external test database with no production data in for testing, however an in memory db would be much better to use
     mongoose.connect('mongodb://alex:Password1@ds141783.mlab.com:41783/student-cvs-testing', {useNewUrlParser: true})
 	.then(() => console.log('MongoDB connected...'))
 	.catch((err) => console.log(err));
@@ -24,10 +25,7 @@ afterEach(() => {
 
 })
 
-describe('firstTest', () => {
-
-    const User = require('../Schemas/User');
-
+describe('Account Data Access Tests', () => {
 
     it('gets a user', async () => {
 
