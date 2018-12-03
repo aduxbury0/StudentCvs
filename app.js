@@ -11,6 +11,10 @@ const routeCV = require('./routes/CV');
 //Initialising Express
 const app = express();
 
+//Middleware
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
 mongoose.connect(keys.mongodbURI, {useNewUrlParser: true})
 	.then(() => console.log('MongoDB connected...'))
 	.catch((err) => console.log(err));
@@ -26,13 +30,6 @@ app.set('view engine', 'handlebars');
 
 // Using Public as our static folder
 app.use(express.static('public'));
-
-
-//Middleware
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
-
-
 
 // GET route HOME
 app.get('/', (req, res) => {

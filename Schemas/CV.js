@@ -3,7 +3,6 @@ const Schema = mongoose.Schema;
 
 const CVSchema = new Schema({
 
-	user: {type: Schema.Types.ObjectID, ref: 'User'},
 	forename: String,
 	surname: String,
 	emailAddress: String,

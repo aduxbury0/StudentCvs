@@ -2,3 +2,5 @@ node_modules
 public
 views
 db_data
+__tests__
+coverage

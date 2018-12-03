@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const cvLogic = require('../modules/businessLogic/cvLogic');
 
 
 router.get('/create', (req, res) => {
@@ -10,6 +11,18 @@ router.get('/create', (req, res) => {
 router.get('/edit', (req, res) => {
     
 	res.render('cvs/edit');
+
+});
+
+router.post('/edit', (req, res) => {
+	console.log(req);
+	cvLogic.editCV(req)
+		.then((newCV) => {
+
+
+		})
+		.catch(err => console.log(err))
+	res.sendStatus(200);
 
 });
 
