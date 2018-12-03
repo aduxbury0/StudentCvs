@@ -63,6 +63,365 @@ describe('Account Data Access Tests', async () => {
 			})        
 	});
 
+	it('Tests incorrect forename for CV creation',(done) => {
+		expect.assertions(1);
+		inputCV = {
+			surname: 'duxbury',
+			emailAddress: 'test@test.co.uk',
+			dateOfBirth: '17/12/1995',
+			address: {
+				houseNumber: '1',
+				road: 'test rd',
+				city: 'testville',
+				county: 'Testfordshire',
+				country: 'TestRepublic' 
+			},
+
+			education: 'test education',
+
+			workExperience:'test experience',
+
+			personalProfile: 'test profile'
+		}
+
+		cvDataAccess.createCV(inputCV)
+		.then(() => {
+			done();
+		})
+		.catch(err => {
+			expect(err).toBe('Incorrect input for forename')
+			done();
+		})
+
+	});
+
+	it('Tests incorrect surname for CV creation',(done) => {
+		expect.assertions(1);
+		inputCV = {
+			forename: 'Alex',
+			emailAddress: 'test@test.co.uk',
+			dateOfBirth: '17/12/1995',
+			address: {
+				houseNumber: '1',
+				road: 'test rd',
+				city: 'testville',
+				county: 'Testfordshire',
+				country: 'TestRepublic' 
+			},
+
+			education: 'test education',
+
+			workExperience:'test experience',
+
+			personalProfile: 'test profile'
+		}
+
+		cvDataAccess.createCV(inputCV)
+		.then(() => {
+			done();
+		})
+		.catch(err => {
+			expect(err).toBe('Incorrect input for surname')
+			done();
+		})
+	});
+	it('Tests incorrect emailAddress for CV creation',(done) => {
+		expect.assertions(1);
+		inputCV = {
+			forename: 'Alex',
+			surname: 'duxbury',
+			dateOfBirth: '17/12/1995',
+			address: {
+				houseNumber: '1',
+				road: 'test rd',
+				city: 'testville',
+				county: 'Testfordshire',
+				country: 'TestRepublic' 
+			},
+
+			education: 'test education',
+
+			workExperience:'test experience',
+
+			personalProfile: 'test profile'
+		}
+
+		cvDataAccess.createCV(inputCV)
+		.then(() => {
+			done();
+		})
+		.catch(err => {
+			expect(err).toBe('Incorrect input for emailAddress')
+			done();
+		})
+	});
+	it('Tests incorrect dateOfBirth for CV creation',(done) => {
+		expect.assertions(1);
+		inputCV = {
+			forename: 'Alex',
+			surname: 'duxbury',
+			emailAddress: 'test@test.co.uk',
+			address: {
+				houseNumber: '1',
+				road: 'test rd',
+				city: 'testville',
+				county: 'Testfordshire',
+				country: 'TestRepublic' 
+			},
+
+			education: 'test education',
+
+			workExperience:'test experience',
+
+			personalProfile: 'test profile'
+		}
+
+		cvDataAccess.createCV(inputCV)
+		.then(() => {
+			done();
+		})
+		.catch(err => {
+			expect(err).toBe('Incorrect input for dateOfBirth')
+			done();
+		})
+	});
+	it('Tests incorrect houseNumber for CV creation',(done) => {
+		expect.assertions(1);
+		inputCV = {
+			forename: 'Alex',
+			surname: 'duxbury',
+			emailAddress: 'test@test.co.uk',
+			dateOfBirth: '17/12/1995',
+			address: {
+				road: 'test rd',
+				city: 'testville',
+				county: 'Testfordshire',
+				country: 'TestRepublic' 
+			},
+
+			education: 'test education',
+
+			workExperience:'test experience',
+
+			personalProfile: 'test profile'
+		}
+
+		cvDataAccess.createCV(inputCV)
+		.then(() => {
+			done();
+		})
+		.catch(err => {
+			expect(err).toBe('Incorrect input for houseNumber')
+			done();
+		})
+	});
+	it('Tests incorrect road for CV creation',(done) => {
+		expect.assertions(1);
+		inputCV = {
+			forename: 'Alex',
+			surname: 'duxbury',
+			emailAddress: 'test@test.co.uk',
+			dateOfBirth: '17/12/1995',
+			address: {
+				houseNumber: '1',
+				city: 'testville',
+				county: 'Testfordshire',
+				country: 'TestRepublic' 
+			},
+
+			education: 'test education',
+
+			workExperience:'test experience',
+
+			personalProfile: 'test profile'
+		}
+
+		cvDataAccess.createCV(inputCV)
+		.then(() => {
+			done();
+		})
+		.catch(err => {
+			expect(err).toBe('Incorrect input for road')
+			done();
+		})
+	});
+	it('Tests incorrect city for CV creation',(done) => {
+		expect.assertions(1);
+		inputCV = {
+			forename: 'Alex',
+			surname: 'duxbury',
+			emailAddress: 'test@test.co.uk',
+			dateOfBirth: '17/12/1995',
+			address: {
+				houseNumber: '1',
+				road: 'test rd',
+				county: 'Testfordshire',
+				country: 'TestRepublic' 
+			},
+
+			education: 'test education',
+
+			workExperience:'test experience',
+
+			personalProfile: 'test profile'
+		}
+		cvDataAccess.createCV(inputCV)
+		.then(() => {
+			done();
+		})
+		.catch(err => {
+			expect(err).toBe('Incorrect input for city')
+			done();
+		})
+	});
+	it('Tests incorrect county for CV creation',(done) => {
+		expect.assertions(1);
+		inputCV = {
+			forename: 'Alex',
+			surname: 'duxbury',
+			emailAddress: 'test@test.co.uk',
+			dateOfBirth: '17/12/1995',
+			address: {
+				houseNumber: '1',
+				road: 'test rd',
+				city: 'testville',
+				country: 'TestRepublic' 
+			},
+
+			education: 'test education',
+
+			workExperience:'test experience',
+
+			personalProfile: 'test profile'
+		}
+
+		cvDataAccess.createCV(inputCV)
+		.then(() => {
+			done();
+		})
+		.catch(err => {
+			expect(err).toBe('Incorrect input for county')
+			done();
+		})
+	});
+	it('Tests incorrect country for CV creation',(done) => {
+		expect.assertions(1);
+		inputCV = {
+			forename: 'Alex',
+			surname: 'duxbury',
+			emailAddress: 'test@test.co.uk',
+			dateOfBirth: '17/12/1995',
+			address: {
+				houseNumber: '1',
+				road: 'test rd',
+				city: 'testville',
+				county: 'Testfordshire',
+			},
+
+			education: 'test education',
+
+			workExperience:'test experience',
+
+			personalProfile: 'test profile'
+		}
+
+		cvDataAccess.createCV(inputCV)
+		.then(() => {
+			done();
+		})
+		.catch(err => {
+			expect(err).toBe('Incorrect input for country')
+			done();
+		})
+	});
+	it('Tests incorrect education for CV creation',(done) => {
+		expect.assertions(1);
+		inputCV = {
+			forename: 'Alex',
+			surname: 'duxbury',
+			emailAddress: 'test@test.co.uk',
+			dateOfBirth: '17/12/1995',
+			address: {
+				houseNumber: '1',
+				road: 'test rd',
+				city: 'testville',
+				county: 'Testfordshire',
+				country: 'TestRepublic' 
+			},
+
+			workExperience:'test experience',
+
+			personalProfile: 'test profile'
+		}
+		cvDataAccess.createCV(inputCV)
+		.then(() => {
+			done();
+		})
+		.catch(err => {
+			expect(err).toBe('Incorrect input for education')
+			done();
+		})
+	});
+	it('Tests incorrect workExperience for CV creation',(done) => {
+		expect.assertions(1);
+		inputCV = {
+			forename: 'Alex',
+			surname: 'duxbury',
+			emailAddress: 'test@test.co.uk',
+			dateOfBirth: '17/12/1995',
+			address: {
+				houseNumber: '1',
+				road: 'test rd',
+				city: 'testville',
+				county: 'Testfordshire',
+				country: 'TestRepublic' 
+			},
+
+			education: 'test education',
+
+			personalProfile: 'test profile'
+		}
+
+		cvDataAccess.createCV(inputCV)
+		.then(() => {
+			done();
+		})
+		.catch(err => {
+			expect(err).toBe('Incorrect input for workExperience')
+			done();
+		})
+	});
+	it('Tests incorrect personalProfile for CV creation',(done) => {
+		expect.assertions(1);
+		inputCV = {
+			forename: 'Alex',
+			surname: 'duxbury',
+			emailAddress: 'test@test.co.uk',
+			dateOfBirth: '17/12/1995',
+			address: {
+				houseNumber: '1',
+				road: 'test rd',
+				city: 'testville',
+				county: 'Testfordshire',
+				country: 'TestRepublic' 
+			},
+
+			education: 'test education',
+
+			workExperience:'test experience',
+		}
+
+		cvDataAccess.createCV(inputCV)
+		.then(() => {
+			done();
+		})
+		.catch(err => {
+			expect(err).toBe('Incorrect input for personalProfile')
+			done();
+		})
+	});
+	
+
 	it('edits a cv', (done) => {
 		expect.assertions(4);
 
@@ -134,7 +493,7 @@ describe('Account Data Access Tests', async () => {
 	})
     
 
-	it('gets a cv by email', (done) => {
+	it('gets a cv by id', (done) => {
 		expect.assertions(1);
 
 		inputCV = new CV({
@@ -159,11 +518,10 @@ describe('Account Data Access Tests', async () => {
 		});
 
 		inputCV.save()
-			.then(() => {
-
-				cvDataAccess.specificCVAccess('test1@test.co.uk')
+			.then((savedCV) => {
+				cvDataAccess.specificCVAccess(savedCV._id)
 					.then(resultCV => {
-						expect(resultCV.emailAddress).toBe('test1@test.co.uk');
+						expect(resultCV._id).toEqual(savedCV._id);
 						CV.deleteOne({_id: resultCV._id})
 							.then(() => {
 								done();
@@ -227,26 +585,32 @@ describe('Account Data Access Tests', async () => {
             .then(() => {
                 cvDataAccess.CVlistAccess()
                 .then((cvArray) => {
-                    expect(cvArray.size()).toBe(2);
+					console.log(cvArray);
+                    expect(cvArray.length).toBe(2);
                     CV.findOneAndDelete({_id: cvArray[0]._id})
                     .then(() => {
                         CV.findOneAndDelete({_id: cvArray[1]._id})
-                        .then(() => {})
-                        .catch(err => console.log(err))
-
+						.then(() => {
+							done();
+						})
+                        .catch(err => console.log(err));
                     })
-                    .catch(err => console.log(err))
+                    .catch(err => console.log(err));
                 })
-                .catch(err => console.log(err));
+                .catch(err => {
+					CV.findOneAndDelete({_id: cvArray[0]._id})
+                    .then(() => {
+                        CV.findOneAndDelete({_id: cvArray[1]._id})
+						.then(() => {
+							done();
+						})
+                        .catch(err => console.log(err));
+                    })
+                    .catch(err => console.log(err));
+				});
             })
             .catch(err => console.log(err));
         })
         .catch(err => console.log(err));
-
-        
-
-
-
-    })
-
+    });
 });

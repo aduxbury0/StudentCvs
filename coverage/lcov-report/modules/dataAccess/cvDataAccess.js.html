@@ -20,14 +20,14 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">82.61% </span>
+        <span class="strong">91.3% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>19/23</span>
+        <span class='fraction'>42/46</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>0/0</span>
+        <span class='fraction'>24/24</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">75% </span>
@@ -35,9 +35,9 @@
         <span class='fraction'>6/8</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">82.61% </span>
+        <span class="strong">91.3% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>19/23</span>
+        <span class='fraction'>42/46</span>
       </div>
     </div>
   </div>
@@ -135,13 +135,83 @@
 90
 91
 92
-93</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">13x</span>
+<span class="cline-any cline-yes">13x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -174,6 +244,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
@@ -226,43 +297,78 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">const mongoose = require('mongoose');
-const CV = require('../../Schemas/CV');
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">const CV = require('../../Schemas/CV');
 &nbsp;
 module.exports = cvDataAccess = {
 &nbsp;
 	createCV(inputCv) {
 		return new Promise(async (resolve, reject) =&gt; {
-            
-			const newcv = new CV({
-				forename: inputCv.forename,
-				surname: inputCv.surname,
-				emailAddress: inputCv.emailAddress,
-				dateOfBirth: inputCv.dateOfBirth,
-				address: {
-					houseNumber: inputCv.address.houseNumber,
-					road: inputCv.address.road,
-					city: inputCv.address.city,
-					county: inputCv.address.county,
-					country: inputCv.address.country 
-				},
-&nbsp;
-				education: inputCv.education,
-&nbsp;
-				workExperience: inputCv.workExperience,
-&nbsp;
-				personalProfile: inputCv.personalProfile
-			});
-&nbsp;
-			try{
-				const resultCV = newcv.save();
-				resolve(resultCV);
+			if(typeof inputCv.forename === 'undefined') {
+				reject('Incorrect input for forename');
 			}
-			catch(err) {
-<span class="cstat-no" title="statement not covered" >				reject(err);</span>
+			else if(typeof inputCv.surname === 'undefined') {
+				reject('Incorrect input for surname');
 			}
-		})
+			else if(typeof inputCv.emailAddress === 'undefined') {
+				reject('Incorrect input for emailAddress');
+			}
+			else if(typeof inputCv.dateOfBirth === 'undefined') {
+				reject('Incorrect input for dateOfBirth');
+			}
+			else if(typeof inputCv.address.houseNumber === 'undefined') {
+				reject('Incorrect input for houseNumber');
+			}
+			else if(typeof inputCv.address.road === 'undefined') {
+				reject('Incorrect input for road');
+			}
+			else if(typeof inputCv.address.city === 'undefined') {
+				reject('Incorrect input for city');
+			}
+			else if(typeof inputCv.address.county === 'undefined') {
+				reject('Incorrect input for county');
+			}
+			else if(typeof inputCv.address.country === 'undefined') {
+				reject('Incorrect input for country');
+			}
+			else if(typeof inputCv.education === 'undefined') {
+				reject('Incorrect input for education');
+			}
+			else if(typeof inputCv.workExperience === 'undefined') {
+				reject('Incorrect input for workExperience');
+			}
+			else if(typeof inputCv.personalProfile === 'undefined') {
+				reject('Incorrect input for personalProfile');
+			}
+			else {
+				const newcv = new CV({
+					forename: inputCv.forename,
+					surname: inputCv.surname,
+					emailAddress: inputCv.emailAddress,
+					dateOfBirth: inputCv.dateOfBirth,
+					address: {
+						houseNumber: inputCv.address.houseNumber,
+						road: inputCv.address.road,
+						city: inputCv.address.city,
+						county: inputCv.address.county,
+						country: inputCv.address.country 
+					},
+	
+					education: inputCv.education,
+	
+					workExperience: inputCv.workExperience,
+	
+					personalProfile: inputCv.personalProfile
+				});
+	
+				try{
+					const resultCV = newcv.save();
+					resolve(resultCV);
+				}
+				catch(err) {
+<span class="cstat-no" title="statement not covered" >					reject(err);</span>
+				}
+			}
+		});
 	},
     
 	editCV(inputData) {
@@ -293,10 +399,10 @@ module.exports = cvDataAccess = {
 		});
 	},
     
-	specificCVAccess(inputEmail) {
+	specificCVAccess(inputId) {
 		return new Promise((resolve, reject) =&gt; {
             
-			CV.findOne({emailAddress: inputEmail})
+			CV.findOne({_id: inputId})
 				.then((foundCV) =&gt; {
 					resolve(foundCV);
 				})
@@ -315,9 +421,8 @@ module.exports = cvDataAccess = {
 				})
 				.catch(<span class="fstat-no" title="function not covered" >er</span>r =&gt; {
 <span class="cstat-no" title="statement not covered" >					reject(err);</span>
-				})
-&nbsp;
-		})
+				});
+		});
 	}
 }</pre></td></tr>
 </table></pre>
@@ -325,7 +430,7 @@ module.exports = cvDataAccess = {
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sun Dec 02 2018 23:59:26 GMT+0000 (GMT Standard Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Dec 03 2018 17:53:51 GMT+0000 (GMT Standard Time)
 </div>
 </div>
 <script src="..\..\prettify.js"></script>

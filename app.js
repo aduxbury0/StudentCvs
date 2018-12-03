@@ -21,7 +21,7 @@ mongoose.connect(keys.mongodbURI, {useNewUrlParser: true})
 
 //initialising routes
 app.use('/account', routeAccount);
-app.use('/CV', routeCV);
+app.use('/cv', routeCV);
 
 
 //Setting templating engine to Handlebars

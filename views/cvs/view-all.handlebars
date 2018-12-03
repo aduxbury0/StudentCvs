@@ -5,17 +5,16 @@
                 <th></th>
                 <th>Forename</th>
                 <th>Surname</th>
-                <th>Degree Title</th>
                 <th>To CV</th>
             </tr>
-            
+            {{#each cvList}}
             <tr>
                 <td></td>
-                <td>Joe</td>
-                <td>Bloggs</td>
-                <td>Faking it</td>
-                <td><a href="" class="btn green"><i class="material-icons right">chevron_right</i>Go To</a></td>
+                <td>{{this.forename}}</td>
+                <td>{{this.surname}}</td>
+                <td><a href="/cv/{{this._id}}" class="btn green"><i class="material-icons right">chevron_right</i>Go To</a></td>
             </tr>
+            {{/each}}
 
         </table>
 

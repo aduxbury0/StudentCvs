@@ -1,4 +1,3 @@
-const mongoose = require('mongoose');
 const User = require('../../Schemas/User');
 
 const accountAccess = {

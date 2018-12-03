@@ -1,6 +1,6 @@
 const router = require('express').Router();
 
-router.post('/sendMail', () => {
+router.post('/sendMail', (req, res) => {
 
 	res.send(201);
 
