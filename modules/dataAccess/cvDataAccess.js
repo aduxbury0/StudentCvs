@@ -91,7 +91,6 @@ module.exports = cvDataAccess = {
 						country: inputData.address.country
 					}
 				}, {new: true});
-				console.log(updatedCV);
 				resolve(updatedCV);
 			}
 			catch(err) {

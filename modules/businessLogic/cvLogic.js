@@ -25,9 +25,10 @@ module.exports = {
 	
 				personalProfile: body.personalProfile
 			}
-	
+			console.log(newCV);
 			cvAccess.createCV(newCV)
 				.then((resultCV) => {
+					console.log(resultCV);
 					resolve(resultCV);
 				})
 				.catch(err => {

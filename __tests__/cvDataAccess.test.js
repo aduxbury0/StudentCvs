@@ -540,7 +540,7 @@ describe('Account Data Access Tests', async () => {
         inputCV1 = new CV({
 			forename: 'Alex',
 			surname: 'duxbury',
-			emailAddress: 'test@test.co.uk',
+			emailAddress: 'ArrayTest1@test.co.uk',
 			dateOfBirth: '17/12/1995',
 			address: {
 				houseNumber: '1',
@@ -586,10 +586,10 @@ describe('Account Data Access Tests', async () => {
                 cvDataAccess.CVlistAccess()
                 .then((cvArray) => {
 					console.log(cvArray);
-                    expect(cvArray.length).toBe(2);
-                    CV.findOneAndDelete({_id: cvArray[0]._id})
+                    expect(cvArray.length).not.toBeLessThan(2);
+                    CV.findOneAndDelete({emailAddress: 'ArrayTest1@test.co.uk'})
                     .then(() => {
-                        CV.findOneAndDelete({_id: cvArray[1]._id})
+                        CV.findOneAndDelete({emailAddress: 'ArrayTest2@test.co.uk'})
 						.then(() => {
 							done();
 						})

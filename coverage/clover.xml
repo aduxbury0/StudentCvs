@@ -1,76 +1,112 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1543859631816" clover="3.2.0">
-  <project timestamp="1543859631817" name="All files">
-    <metrics statements="53" coveredstatements="49" conditionals="24" coveredconditionals="24" methods="8" coveredmethods="6" elements="85" coveredelements="79" complexity="0" loc="53" ncloc="53" packages="3" files="3" classes="3">
+<coverage generated="1543979646836" clover="3.2.0">
+  <project timestamp="1543979646836" name="All files">
+    <metrics statements="83" coveredstatements="57" conditionals="28" coveredconditionals="24" methods="20" coveredmethods="8" elements="131" coveredelements="89" complexity="0" loc="83" ncloc="83" packages="4" files="4" classes="4">
       <package name="Schemas">
         <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <file name="CV.js" path="C:\Users\Alex\Desktop\University Work\Year 3\Software Quality and Process Management\student-cvs\Schemas\CV.js">
+        <file name="CV.js" path="C:\Users\Alex\Desktop\University\CS Year 3\Semester 1\Software Quality and Process Management\student-cvs\Schemas\CV.js">
           <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-          <line num="1" count="1" type="stmt"/>
-          <line num="2" count="1" type="stmt"/>
-          <line num="4" count="1" type="stmt"/>
-          <line num="26" count="1" type="stmt"/>
-          <line num="28" count="1" type="stmt"/>
+          <line num="1" count="2" type="stmt"/>
+          <line num="2" count="2" type="stmt"/>
+          <line num="4" count="2" type="stmt"/>
+          <line num="26" count="2" type="stmt"/>
+          <line num="28" count="2" type="stmt"/>
         </file>
       </package>
       <package name="keys">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <file name="keys.js" path="C:\Users\Alex\Desktop\University Work\Year 3\Software Quality and Process Management\student-cvs\keys\keys.js">
+        <file name="keys.js" path="C:\Users\Alex\Desktop\University\CS Year 3\Semester 1\Software Quality and Process Management\student-cvs\keys\keys.js">
           <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
           <line num="1" count="1" type="stmt"/>
           <line num="8" count="1" type="stmt"/>
         </file>
       </package>
-      <package name="modules.dataAccess">
-        <metrics statements="46" coveredstatements="42" conditionals="24" coveredconditionals="24" methods="8" coveredmethods="6"/>
-        <file name="cvDataAccess.js" path="C:\Users\Alex\Desktop\University Work\Year 3\Software Quality and Process Management\student-cvs\modules\dataAccess\cvDataAccess.js">
-          <metrics statements="46" coveredstatements="42" conditionals="24" coveredconditionals="24" methods="8" coveredmethods="6"/>
+      <package name="modules.businessLogic">
+        <metrics statements="31" coveredstatements="9" conditionals="4" coveredconditionals="0" methods="12" coveredmethods="2"/>
+        <file name="cvLogic.js" path="C:\Users\Alex\Desktop\University\CS Year 3\Semester 1\Software Quality and Process Management\student-cvs\modules\businessLogic\cvLogic.js">
+          <metrics statements="31" coveredstatements="9" conditionals="4" coveredconditionals="0" methods="12" coveredmethods="2"/>
           <line num="1" count="1" type="stmt"/>
           <line num="3" count="1" type="stmt"/>
-          <line num="6" count="13" type="stmt"/>
-          <line num="7" count="13" type="cond" truecount="2" falsecount="0"/>
-          <line num="8" count="1" type="stmt"/>
-          <line num="10" count="12" type="cond" truecount="2" falsecount="0"/>
-          <line num="11" count="1" type="stmt"/>
-          <line num="13" count="11" type="cond" truecount="2" falsecount="0"/>
-          <line num="14" count="1" type="stmt"/>
-          <line num="16" count="10" type="cond" truecount="2" falsecount="0"/>
-          <line num="17" count="1" type="stmt"/>
-          <line num="19" count="9" type="cond" truecount="2" falsecount="0"/>
-          <line num="20" count="1" type="stmt"/>
-          <line num="22" count="8" type="cond" truecount="2" falsecount="0"/>
-          <line num="23" count="1" type="stmt"/>
-          <line num="25" count="7" type="cond" truecount="2" falsecount="0"/>
-          <line num="26" count="1" type="stmt"/>
-          <line num="28" count="6" type="cond" truecount="2" falsecount="0"/>
+          <line num="6" count="1" type="stmt"/>
+          <line num="7" count="1" type="stmt"/>
+          <line num="9" count="1" type="stmt"/>
+          <line num="28" count="1" type="stmt"/>
           <line num="29" count="1" type="stmt"/>
-          <line num="31" count="5" type="cond" truecount="2" falsecount="0"/>
+          <line num="31" count="1" type="stmt"/>
           <line num="32" count="1" type="stmt"/>
-          <line num="34" count="4" type="cond" truecount="2" falsecount="0"/>
+          <line num="35" count="0" type="stmt"/>
+          <line num="41" count="0" type="stmt"/>
+          <line num="43" count="0" type="stmt"/>
+          <line num="45" count="0" type="stmt"/>
+          <line num="65" count="0" type="stmt"/>
+          <line num="67" count="0" type="stmt"/>
+          <line num="68" count="0" type="stmt"/>
+          <line num="70" count="0" type="stmt"/>
+          <line num="75" count="0" type="stmt"/>
+          <line num="77" count="0" type="stmt"/>
+          <line num="79" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="80" count="0" type="stmt"/>
+          <line num="82" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="83" count="0" type="stmt"/>
+          <line num="86" count="0" type="stmt"/>
+          <line num="89" count="0" type="stmt"/>
+          <line num="91" count="0" type="stmt"/>
+          <line num="94" count="0" type="stmt"/>
+          <line num="100" count="0" type="stmt"/>
+          <line num="102" count="0" type="stmt"/>
+          <line num="104" count="0" type="stmt"/>
+          <line num="106" count="0" type="stmt"/>
+        </file>
+      </package>
+      <package name="modules.dataAccess">
+        <metrics statements="45" coveredstatements="41" conditionals="24" coveredconditionals="24" methods="8" coveredmethods="6"/>
+        <file name="cvDataAccess.js" path="C:\Users\Alex\Desktop\University\CS Year 3\Semester 1\Software Quality and Process Management\student-cvs\modules\dataAccess\cvDataAccess.js">
+          <metrics statements="45" coveredstatements="41" conditionals="24" coveredconditionals="24" methods="8" coveredmethods="6"/>
+          <line num="1" count="2" type="stmt"/>
+          <line num="3" count="2" type="stmt"/>
+          <line num="6" count="14" type="stmt"/>
+          <line num="7" count="14" type="cond" truecount="2" falsecount="0"/>
+          <line num="8" count="1" type="stmt"/>
+          <line num="10" count="13" type="cond" truecount="2" falsecount="0"/>
+          <line num="11" count="1" type="stmt"/>
+          <line num="13" count="12" type="cond" truecount="2" falsecount="0"/>
+          <line num="14" count="1" type="stmt"/>
+          <line num="16" count="11" type="cond" truecount="2" falsecount="0"/>
+          <line num="17" count="1" type="stmt"/>
+          <line num="19" count="10" type="cond" truecount="2" falsecount="0"/>
+          <line num="20" count="1" type="stmt"/>
+          <line num="22" count="9" type="cond" truecount="2" falsecount="0"/>
+          <line num="23" count="1" type="stmt"/>
+          <line num="25" count="8" type="cond" truecount="2" falsecount="0"/>
+          <line num="26" count="1" type="stmt"/>
+          <line num="28" count="7" type="cond" truecount="2" falsecount="0"/>
+          <line num="29" count="1" type="stmt"/>
+          <line num="31" count="6" type="cond" truecount="2" falsecount="0"/>
+          <line num="32" count="1" type="stmt"/>
+          <line num="34" count="5" type="cond" truecount="2" falsecount="0"/>
           <line num="35" count="1" type="stmt"/>
-          <line num="37" count="3" type="cond" truecount="2" falsecount="0"/>
+          <line num="37" count="4" type="cond" truecount="2" falsecount="0"/>
           <line num="38" count="1" type="stmt"/>
-          <line num="40" count="2" type="cond" truecount="2" falsecount="0"/>
+          <line num="40" count="3" type="cond" truecount="2" falsecount="0"/>
           <line num="41" count="1" type="stmt"/>
-          <line num="44" count="1" type="stmt"/>
-          <line num="64" count="1" type="stmt"/>
-          <line num="65" count="1" type="stmt"/>
-          <line num="66" count="1" type="stmt"/>
+          <line num="44" count="2" type="stmt"/>
+          <line num="64" count="2" type="stmt"/>
+          <line num="65" count="2" type="stmt"/>
+          <line num="66" count="2" type="stmt"/>
           <line num="69" count="0" type="stmt"/>
           <line num="76" count="1" type="stmt"/>
           <line num="78" count="1" type="stmt"/>
           <line num="80" count="1" type="stmt"/>
           <line num="94" count="1" type="stmt"/>
-          <line num="95" count="1" type="stmt"/>
-          <line num="98" count="0" type="stmt"/>
-          <line num="104" count="1" type="stmt"/>
-          <line num="106" count="1" type="stmt"/>
-          <line num="108" count="1" type="stmt"/>
-          <line num="111" count="0" type="stmt"/>
+          <line num="97" count="0" type="stmt"/>
+          <line num="103" count="1" type="stmt"/>
+          <line num="105" count="1" type="stmt"/>
+          <line num="107" count="1" type="stmt"/>
+          <line num="110" count="0" type="stmt"/>
+          <line num="117" count="1" type="stmt"/>
           <line num="118" count="1" type="stmt"/>
-          <line num="119" count="1" type="stmt"/>
-          <line num="121" count="1" type="stmt"/>
-          <line num="124" count="0" type="stmt"/>
+          <line num="120" count="1" type="stmt"/>
+          <line num="123" count="0" type="stmt"/>
         </file>
       </package>
     </metrics>
