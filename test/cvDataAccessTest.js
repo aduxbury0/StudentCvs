@@ -459,7 +459,7 @@ describe('Account Data Access Tests', () => {
 		inputCV = new CV({
 			forename: 'Alex',
 			surname: 'duxbury',
-			emailAddress: 'test1@test.co.uk',
+			emailAddress: 'test123@test.co.uk',
 			dateOfBirth: '17/12/1995',
 			address: {
 				houseNumber: '1',
@@ -481,14 +481,7 @@ describe('Account Data Access Tests', () => {
 			.then((savedCV) => {
 				cvDataAccess.specificCVAccess(savedCV._id)
 					.then(resultCV => {
-						let checkID = savedCV._id;
-						let checkID2 = resultCV._id;
-						console.log(checkID);
-						console.log(typeof checkID);
-						console.log(checkID2);
-						console.log(typeof checkID2);
-						// assert(checkID2 === checkID);
-						assert.equal(checkID, checkID2);
+						assert.equal(resultCV.emailAddress, 'test123@test.co.uk');
 						CV.deleteOne({_id: resultCV._id})
 							.then(() => {
 								done();

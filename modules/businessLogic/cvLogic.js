@@ -27,8 +27,6 @@ module.exports = {
 			}
 			cvAccess.createCV(newCV)
 				.then((resultCV) => {
-					console.log('resultCV: ')
-					console.log(resultCV);
 					resolve(resultCV);
 				})
 				.catch(err => {
@@ -64,7 +62,6 @@ module.exports = {
 
 			cvAccess.editCV(editedCV)
 				.then((editedCVNew) => {
-					console.log(editedCVNew);
 					resolve(editedCVNew);
 				})
 				.catch(err => reject(err));
@@ -74,13 +71,10 @@ module.exports = {
 	singleCv(req) {
 		return new Promise((resolve, reject) => {
 			
-			let id = ''
+			let id = '';
 			
-			if(typeof req.body.emailAddress !== 'undefined') {
-				email = req.params.emailAddress;
-			}
-			else if(typeof req.body.email !== 'undefined') {
-				email = req.params.email;
+			if(typeof req.params.id !== 'undefined' && req.params.id !== '') {
+				id = req.params.id;
 			}
 			else {
 				reject('no ID provided');

@@ -99,10 +99,10 @@ module.exports = cvDataAccess = {
 		});
 	},
     
-	specificCVAccess(inputId) {
+	specificCVAccess(inputID) {
 		return new Promise((resolve, reject) => {
             
-			CV.findOne({_id: inputId})
+			CV.findOne({_id: inputID})
 				.then((foundCV) => {
 					resolve(foundCV);
 				})

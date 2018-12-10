@@ -25,7 +25,6 @@ router.get('/edit', (req, res) => {
 });
 
 router.post('/edit', (req, res) => {
-	console.log(req);
 	cvLogic.editCV(req)
 		.then(newCV => {
 
