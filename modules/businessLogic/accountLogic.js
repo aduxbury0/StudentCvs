@@ -2,9 +2,11 @@
 module.exports = {
 
 
-    register() {
+    register(req) {
         return new Promise((resolve, reject) => {
+            body = req.body;
 
+            
 
         });
     },
