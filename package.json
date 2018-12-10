@@ -4,7 +4,7 @@
   "description": "A sharing platform for student CVs",
   "main": "app.js",
   "scripts": {
-    "test": "jest --coverage",
+    "test": "mocha --timeout 5000",
     "lint": "eslint ./",
     "lintfix": "eslint ./ --fix"
   },
@@ -19,24 +19,27 @@
   },
   "homepage": "https://gitlab.com/aduxbury0/student-cvs#readme",
   "dependencies": {
+    "axios": "^0.18.0",
+    "bcrypt": "^3.0.2",
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
     "express-handlebars": "^3.0.0",
-    "mongoose": "^5.3.7"
+    "mocha": "^5.2.0",
+    "mongoose": "^5.3.7",
+    "sinon": "^7.1.1"
   },
   "devDependencies": {
     "eslint": "^5.8.0",
     "jest": "^23.6.0"
   },
   "jest": {
-    "testEnviroment": "node",
+    "testEnvironment": "node",
     "verbose": true,
     "coverageThreshold": {
       "global": {
-        "branches": 100,
-        "functions": 100,
-        "lines": 100,
-        "statements": -10
+        "branches": 80,
+        "functions": 80,
+        "lines": 80
       }
     }
   }

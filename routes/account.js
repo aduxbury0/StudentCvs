@@ -6,21 +6,42 @@ router.get('/', (req, res) => {
 
 });
 
+/* Login Routes */
 router.get('/login', (req, res) => {
 
-	res.send('login');
+	res.render('login');
 });
 
+router.post('/login', (req, res) => {
+
+	res.send(201);
+
+});
+
+/* Registration Routes */
 router.get('/register', (req, res) => {
 
-	res.send('Register')
+	res.render('signup');
 
 });
 
+router.post('/register', (req, res) => {
+
+	res.send(201);
+	
+});
+
+/* Logout Routes */
 router.get('/logout', (req, res) => {
 
 	res.send('logout');
 
+});
+
+router.post('/logout', (req, res) => {
+
+	res.send(201);
+	
 });
 
 module.exports = router;
