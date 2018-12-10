@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1543979646836" clover="3.2.0">
-  <project timestamp="1543979646836" name="All files">
-    <metrics statements="83" coveredstatements="57" conditionals="28" coveredconditionals="24" methods="20" coveredmethods="8" elements="131" coveredelements="89" complexity="0" loc="83" ncloc="83" packages="4" files="4" classes="4">
+<coverage generated="1544403651885" clover="3.2.0">
+  <project timestamp="1544403651885" name="All files">
+    <metrics statements="83" coveredstatements="54" conditionals="28" coveredconditionals="24" methods="20" coveredmethods="7" elements="131" coveredelements="85" complexity="0" loc="83" ncloc="83" packages="4" files="4" classes="4">
       <package name="Schemas">
         <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <file name="CV.js" path="C:\Users\Alex\Desktop\University\CS Year 3\Semester 1\Software Quality and Process Management\student-cvs\Schemas\CV.js">
+        <file name="CV.js" path="C:\Users\Alex\Desktop\University Work\Year 3\Software Quality and Process Management\student-cvs\Schemas\CV.js">
           <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
           <line num="1" count="2" type="stmt"/>
           <line num="2" count="2" type="stmt"/>
@@ -15,25 +15,25 @@
       </package>
       <package name="keys">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <file name="keys.js" path="C:\Users\Alex\Desktop\University\CS Year 3\Semester 1\Software Quality and Process Management\student-cvs\keys\keys.js">
+        <file name="keys.js" path="C:\Users\Alex\Desktop\University Work\Year 3\Software Quality and Process Management\student-cvs\keys\keys.js">
           <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
           <line num="1" count="1" type="stmt"/>
           <line num="8" count="1" type="stmt"/>
         </file>
       </package>
       <package name="modules.businessLogic">
-        <metrics statements="31" coveredstatements="9" conditionals="4" coveredconditionals="0" methods="12" coveredmethods="2"/>
-        <file name="cvLogic.js" path="C:\Users\Alex\Desktop\University\CS Year 3\Semester 1\Software Quality and Process Management\student-cvs\modules\businessLogic\cvLogic.js">
-          <metrics statements="31" coveredstatements="9" conditionals="4" coveredconditionals="0" methods="12" coveredmethods="2"/>
+        <metrics statements="31" coveredstatements="6" conditionals="4" coveredconditionals="0" methods="12" coveredmethods="1"/>
+        <file name="cvLogic.js" path="C:\Users\Alex\Desktop\University Work\Year 3\Software Quality and Process Management\student-cvs\modules\businessLogic\cvLogic.js">
+          <metrics statements="31" coveredstatements="6" conditionals="4" coveredconditionals="0" methods="12" coveredmethods="1"/>
           <line num="1" count="1" type="stmt"/>
           <line num="3" count="1" type="stmt"/>
           <line num="6" count="1" type="stmt"/>
           <line num="7" count="1" type="stmt"/>
           <line num="9" count="1" type="stmt"/>
           <line num="28" count="1" type="stmt"/>
-          <line num="29" count="1" type="stmt"/>
-          <line num="31" count="1" type="stmt"/>
-          <line num="32" count="1" type="stmt"/>
+          <line num="30" count="0" type="stmt"/>
+          <line num="31" count="0" type="stmt"/>
+          <line num="32" count="0" type="stmt"/>
           <line num="35" count="0" type="stmt"/>
           <line num="41" count="0" type="stmt"/>
           <line num="43" count="0" type="stmt"/>
@@ -60,7 +60,7 @@
       </package>
       <package name="modules.dataAccess">
         <metrics statements="45" coveredstatements="41" conditionals="24" coveredconditionals="24" methods="8" coveredmethods="6"/>
-        <file name="cvDataAccess.js" path="C:\Users\Alex\Desktop\University\CS Year 3\Semester 1\Software Quality and Process Management\student-cvs\modules\dataAccess\cvDataAccess.js">
+        <file name="cvDataAccess.js" path="C:\Users\Alex\Desktop\University Work\Year 3\Software Quality and Process Management\student-cvs\modules\dataAccess\cvDataAccess.js">
           <metrics statements="45" coveredstatements="41" conditionals="24" coveredconditionals="24" methods="8" coveredmethods="6"/>
           <line num="1" count="2" type="stmt"/>
           <line num="3" count="2" type="stmt"/>

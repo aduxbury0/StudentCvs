@@ -3,6 +3,8 @@ const keys = require('../keys/keys');
 const CV = require('../Schemas/CV');
 const cvDataAccess = require('../modules/dataAccess/cvDataAccess');
 
+let db = '';
+
 beforeAll(() => {
 	//if no local mongodb is present you can switch to the external testing database
 	mongoose.connect('mongodb://alex:Password1@ds141783.mlab.com:41783/student-cvs-testing', {useNewUrlParser: true})
@@ -13,10 +15,12 @@ beforeAll(() => {
 
 
 afterAll(() => {
-
-	mongoose.disconnect();
+	//db.close()
+	// mongoose.connection.close()
 
 });
+
+
 
 describe('Account Data Access Tests', async () => {
 
@@ -561,7 +565,7 @@ describe('Account Data Access Tests', async () => {
         inputCV2 = new CV({
 			forename: 'Alan',
 			surname: 'duxbury',
-			emailAddress: 'test2@test.co.uk',
+			emailAddress: 'ArrayTest2@test.co.uk',
 			dateOfBirth: '17/12/1995',
 			address: {
 				houseNumber: '12',
@@ -585,7 +589,6 @@ describe('Account Data Access Tests', async () => {
             .then(() => {
                 cvDataAccess.CVlistAccess()
                 .then((cvArray) => {
-					console.log(cvArray);
                     expect(cvArray.length).not.toBeLessThan(2);
                     CV.findOneAndDelete({emailAddress: 'ArrayTest1@test.co.uk'})
                     .then(() => {

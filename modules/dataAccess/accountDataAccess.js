@@ -2,19 +2,19 @@ const User = require('../../Schemas/User');
 
 const accountAccess = {
 	singleAccount(username) {
-		return new Promise(async (resolve, reject) => {
-			try{
-				const foundUser = await User.findOne(username)
-				if(foundUser !== {}) {
-					resolve(foundUser);
-				}
-				else {
-					reject('user not found');
-				}
-			}
-			catch(err) {
-				reject(err);
-			}
+		return new Promise((resolve, reject) => {
+
+				User.findOne(username)
+				.then((foundUser) => {
+					if(foundUser === {} || typeof foundUser === 'undefined') {
+						reject('user not found');
+					}
+					else {
+						resolve(foundUser);
+					}
+
+				})
+				.catch(err => reject(err));
 		});
 	},
 
@@ -37,8 +37,7 @@ const accountAccess = {
 				})
 				.catch(err => {
 					reject(err);
-				})
-
+				});
 		});
 	}
 
