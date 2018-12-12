@@ -4,7 +4,7 @@ const cvDataAccess = require('../modules/dataAccess/cvDataAccess');
 
 describe('Account Data Access Tests', () => {
 
-    it('creates a CV',(done) => {
+	it('creates a CV',(done) => {
 
 		inputCV = {
 			forename: 'Alex',
@@ -29,7 +29,7 @@ describe('Account Data Access Tests', () => {
 
 		cvDataAccess.createCV(inputCV)
 			.then(resultCV => {
-                assert(resultCV.forename === 'Alex');
+				assert(resultCV.forename === 'Alex');
 				CV.deleteOne({_id: resultCV._id})
 					.then(() => {
 						done();
@@ -63,13 +63,13 @@ describe('Account Data Access Tests', () => {
 		}
 
 		cvDataAccess.createCV(inputCV)
-		.then(() => {
-			done();
-		})
-		.catch(err => {
-			assert(err === 'Incorrect input for forename');
-			done();
-		})
+			.then(() => {
+				done();
+			})
+			.catch(err => {
+				assert(err === 'Incorrect input for forename');
+				done();
+			})
 
 	});
 	it('Tests incorrect surname for CV creation',(done) => {
@@ -93,13 +93,13 @@ describe('Account Data Access Tests', () => {
 		}
 
 		cvDataAccess.createCV(inputCV)
-		.then(() => {
-			done();
-		})
-		.catch(err => {
-			assert(err === 'Incorrect input for surname');
-			done();
-		})
+			.then(() => {
+				done();
+			})
+			.catch(err => {
+				assert(err === 'Incorrect input for surname');
+				done();
+			})
 	});
 	it('Tests incorrect emailAddress for CV creation',(done) => {
 		inputCV = {
@@ -122,13 +122,13 @@ describe('Account Data Access Tests', () => {
 		}
 
 		cvDataAccess.createCV(inputCV)
-		.then(() => {
-			done();
-		})
-		.catch(err => {
-			assert(err === 'Incorrect input for emailAddress');
-			done();
-		})
+			.then(() => {
+				done();
+			})
+			.catch(err => {
+				assert(err === 'Incorrect input for emailAddress');
+				done();
+			})
 	});
 	it('Tests incorrect dateOfBirth for CV creation',(done) => {
 		inputCV = {
@@ -151,13 +151,13 @@ describe('Account Data Access Tests', () => {
 		}
 
 		cvDataAccess.createCV(inputCV)
-		.then(() => {
-			done();
-		})
-		.catch(err => {
-			assert(err === 'Incorrect input for dateOfBirth')
-			done();
-		})
+			.then(() => {
+				done();
+			})
+			.catch(err => {
+				assert(err === 'Incorrect input for dateOfBirth')
+				done();
+			})
 	});
 	it('Tests incorrect houseNumber for CV creation',(done) => {
 		inputCV = {
@@ -180,13 +180,13 @@ describe('Account Data Access Tests', () => {
 		}
 
 		cvDataAccess.createCV(inputCV)
-		.then(() => {
-			done();
-		})
-		.catch(err => {
-			assert(err === 'Incorrect input for houseNumber');
-			done();
-		})
+			.then(() => {
+				done();
+			})
+			.catch(err => {
+				assert(err === 'Incorrect input for houseNumber');
+				done();
+			})
 	});
 	it('Tests incorrect road for CV creation',(done) => {
 		inputCV = {
@@ -209,13 +209,13 @@ describe('Account Data Access Tests', () => {
 		}
 
 		cvDataAccess.createCV(inputCV)
-		.then(() => {
-			done();
-		})
-		.catch(err => {
-			assert(err === 'Incorrect input for road');
-			done();
-		})
+			.then(() => {
+				done();
+			})
+			.catch(err => {
+				assert(err === 'Incorrect input for road');
+				done();
+			})
 	});
 	it('Tests incorrect city for CV creation',(done) => {
 		inputCV = {
@@ -237,13 +237,13 @@ describe('Account Data Access Tests', () => {
 			personalProfile: 'test profile'
 		}
 		cvDataAccess.createCV(inputCV)
-		.then(() => {
-			done();
-		})
-		.catch(err => {
-			assert(err === 'Incorrect input for city');
-			done();
-		})
+			.then(() => {
+				done();
+			})
+			.catch(err => {
+				assert(err === 'Incorrect input for city');
+				done();
+			})
 	});
 
 	it('Tests incorrect county for CV creation',(done) => {
@@ -267,13 +267,13 @@ describe('Account Data Access Tests', () => {
 		}
 
 		cvDataAccess.createCV(inputCV)
-		.then(() => {
-			done();
-		})
-		.catch(err => {
-			assert(err === 'Incorrect input for county');
-			done();
-		})
+			.then(() => {
+				done();
+			})
+			.catch(err => {
+				assert(err === 'Incorrect input for county');
+				done();
+			})
 	});
 
 	it('Tests incorrect country for CV creation',(done) => {
@@ -286,7 +286,7 @@ describe('Account Data Access Tests', () => {
 				houseNumber: '1',
 				road: 'test rd',
 				city: 'testville',
-				county: 'Testfordshire',
+				county: 'Testfordshire'
 			},
 
 			education: 'test education',
@@ -297,13 +297,13 @@ describe('Account Data Access Tests', () => {
 		}
 
 		cvDataAccess.createCV(inputCV)
-		.then(() => {
-			done();
-		})
-		.catch(err => {
-			assert(err === 'Incorrect input for country');
-			done();
-		})
+			.then(() => {
+				done();
+			})
+			.catch(err => {
+				assert(err === 'Incorrect input for country');
+				done();
+			})
 	});
 
 	it('Tests incorrect education for CV creation',(done) => {
@@ -325,13 +325,13 @@ describe('Account Data Access Tests', () => {
 			personalProfile: 'test profile'
 		}
 		cvDataAccess.createCV(inputCV)
-		.then(() => {
-			done();
-		})
-		.catch(err => {
-			assert(err === 'Incorrect input for education');
-			done();
-		})
+			.then(() => {
+				done();
+			})
+			.catch(err => {
+				assert(err === 'Incorrect input for education');
+				done();
+			})
 	});
 
 	it('Tests incorrect workExperience for CV creation',(done) => {
@@ -354,13 +354,13 @@ describe('Account Data Access Tests', () => {
 		}
 
 		cvDataAccess.createCV(inputCV)
-		.then(() => {
-			done();
-		})
-		.catch(err => {
-			assert(err === 'Incorrect input for workExperience');
-			done();
-		})
+			.then(() => {
+				done();
+			})
+			.catch(err => {
+				assert(err === 'Incorrect input for workExperience');
+				done();
+			})
 	});
 
 	it('Tests incorrect personalProfile for CV creation',(done) => {
@@ -379,17 +379,17 @@ describe('Account Data Access Tests', () => {
 
 			education: 'test education',
 
-			workExperience:'test experience',
+			workExperience:'test experience'
 		}
 
 		cvDataAccess.createCV(inputCV)
-		.then(() => {
-			done();
-		})
-		.catch(err => {
-			assert(err === 'Incorrect input for personalProfile');
-			done();
-		})
+			.then(() => {
+				done();
+			})
+			.catch(err => {
+				assert(err === 'Incorrect input for personalProfile');
+				done();
+			})
 	});
 
 	it('edits a cv', (done) => {
@@ -497,7 +497,7 @@ describe('Account Data Access Tests', () => {
 
 	it('gets an array of all CVs', (done) => {
 
-        inputCV1 = new CV({
+		inputCV1 = new CV({
 			forename: 'Alex',
 			surname: 'duxbury',
 			emailAddress: 'ArrayTest1@test.co.uk',
@@ -516,9 +516,9 @@ describe('Account Data Access Tests', () => {
 
 			personalProfile: 'test profile'
 
-        });
+		});
         
-        inputCV2 = new CV({
+		inputCV2 = new CV({
 			forename: 'Alan',
 			surname: 'duxbury',
 			emailAddress: 'ArrayTest2@test.co.uk',
@@ -537,39 +537,39 @@ describe('Account Data Access Tests', () => {
 
 			personalProfile: 'test profile'
 
-        });
+		});
         
-        inputCV1.save()
-        .then(() => {
-            inputCV2.save()
-            .then(() => {
-                cvDataAccess.CVlistAccess()
-                .then((cvArray) => {
-					assert(cvArray.length > 2);
-                    CV.findOneAndDelete({emailAddress: 'ArrayTest1@test.co.uk'})
-                    .then(() => {
-                        CV.findOneAndDelete({emailAddress: 'ArrayTest2@test.co.uk'})
-						.then(() => {
-							done();
-						})
-                        .catch(err => console.log(err));
-                    })
-                    .catch(err => console.log(err));
-                })
-                .catch(err => {
-					CV.findOneAndDelete({_id: cvArray[0]._id})
-                    .then(() => {
-                        CV.findOneAndDelete({_id: cvArray[1]._id})
-						.then(() => {
-							done();
-						})
-                        .catch(err => console.log(err));
-                    })
-                    .catch(err => console.log(err));
-				});
-            })
-            .catch(err => console.log(err));
-        })
-        .catch(err => console.log(err));
-    });
+		inputCV1.save()
+			.then(() => {
+				inputCV2.save()
+					.then(() => {
+						cvDataAccess.CVlistAccess()
+							.then((cvArray) => {
+								assert(cvArray.length > 2);
+								CV.findOneAndDelete({emailAddress: 'ArrayTest1@test.co.uk'})
+									.then(() => {
+										CV.findOneAndDelete({emailAddress: 'ArrayTest2@test.co.uk'})
+											.then(() => {
+												done();
+											})
+											.catch(err => console.log(err));
+									})
+									.catch(err => console.log(err));
+							})
+							.catch(err => {
+								CV.findOneAndDelete({_id: cvArray[0]._id})
+									.then(() => {
+										CV.findOneAndDelete({_id: cvArray[1]._id})
+											.then(() => {
+												done();
+											})
+											.catch(err => console.log(err));
+									})
+									.catch(err => console.log(err));
+							});
+					})
+					.catch(err => console.log(err));
+			})
+			.catch(err => console.log(err));
+	});
 });
