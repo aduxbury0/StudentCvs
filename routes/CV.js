@@ -11,11 +11,11 @@ router.get('/create', (req, res) => {
 router.post('/create', (req, res) => {
 
 	cvLogic.createCV(req)
-	.then((newCv) => {
-		res.redirect(`/cv/${newCV._id}`);
+		.then((newCv) => {
+			res.redirect(`/cv/${newCV._id}`);
 
-	})
-	.catch(err => console.log(err));
+		})
+		.catch(err => console.log(err));
 })
 
 router.get('/edit', (req, res) => {
@@ -25,7 +25,6 @@ router.get('/edit', (req, res) => {
 });
 
 router.post('/edit', (req, res) => {
-	console.log(req);
 	cvLogic.editCV(req)
 		.then(newCV => {
 
@@ -39,10 +38,10 @@ router.post('/edit', (req, res) => {
 router.get('/viewall', (req, res) => {
 	
 	cvLogic.cvList()
-	.then((cvs) => {
-		res.render('cvs/view-all', {cvList: cvs});
-	})
-	.catch(err => console.log(err));
+		.then((cvs) => {
+			res.render('cvs/view-all', {cvList: cvs});
+		})
+		.catch(err => console.log(err));
 	
 })
 
