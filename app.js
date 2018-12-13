@@ -3,6 +3,8 @@ const exphbs = require("express-handlebars");
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const keys = require('./keys/keys');
+const cookieParser = require('cookie-parser');
+const cors = require('cors');
 
 //Import routes
 const routeAccount = require('./routes/account');
@@ -14,8 +16,11 @@ const app = express();
 //Middleware
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use(cookieParser());
+app.use(cors());
 
-mongoose.connect(keys.mongodbURI, {useNewUrlParser: true})
+//initialising mongoose connection
+mongoose.connect(process.env.MONGO_URI || keys.mongodbURI, {useNewUrlParser: true})
 	.then(() => console.log('MongoDB connected...'))
 	.catch((err) => console.log(err));
 

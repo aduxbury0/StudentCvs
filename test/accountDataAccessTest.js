@@ -186,4 +186,47 @@ describe('Account Data Access Tests', () => {
 			});
 	});
 
+	it('adds a cv to the account', (done) => {
+
+		const newUser = new User({    
+			username: 'GloriousNewUser25',
+			password: 'hashedPassword',
+			userInfo: {
+				forename: 'Alex',
+				surname: 'Duxbury',
+				dateOfBirth: '17/12/1995',
+				emailAddress: 'test@testing.ac.uk'
+			}
+		});
+
+		const cvId = 'thisisanid';
+
+		newUser.save()
+		.then((savedUser) => {
+
+			accountDataAccess.addCVtoAccount(savedUser.username, cvId)
+			.then((response) => {
+				assert(response === 'CV added');
+				User.findOneAndDelete({username: 'GloriousNewUser25'})
+				.then(() => done())
+				.catch(err => console.log(err));
+			})
+			.catch(err => console.log(err));
+
+		})
+		.catch(err => console.log(err));
+
+	});
+
+	it('rejects adding CV on incorrect username', (done) => {
+
+		accountDataAccess.addCVtoAccount('notarealUsername', 'thisisanID')
+		.then(() => {})
+		.catch(err => {
+			assert(err === 'No user found with username');
+			done();
+		});
+
+	});
+
 })

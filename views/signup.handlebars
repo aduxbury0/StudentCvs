@@ -10,58 +10,107 @@
                 
                 <div class="row center-align">
                     <h5 class="bold grey-text text-darken-3">Sign Up</h5>
+                    <h6 style="text-align: center">An academic email address (.ac.uk) is required to sign up</h6>
                 </div>
                 
                 <form>
                     <div class="row">
+                        <input placeholder="Username" id="register-username" type="text">
+                        <label for="register-username">Username</label>
+                    </div>
+
+                    <div class="row">
                         <input placeholder="Email" id="register-email" type="text">
-                        <label for="first_name">Email</label>
+                        <label for="register-email">Email</label>
                     </div>
 
                     <div class="row">
                         <input placeholder="Forename" id="register-forename" type="text">
-                        <label for="first_name">Forename</label>
+                        <label for="register-forename">Forename</label>
                     </div>
 
                     <div class="row">
                         <input placeholder="Surname" id="register-surname" type="text">
-                        <label for="first_name">Surname</label>
-                    </div>
-
-                    <div class="row">
-                        <input placeholder="Institution Name" id="register-institution" type="text">
-                        <label for="first_name">Name of Education Institution</label>
+                        <label for="register-surname">Surname</label>
                     </div>
                     
                     <div class="row">
-                        <input placeholder="Password" id="login-password" type="text">
-                        <label for="first_name">Password</label>
+                         <input id="datePicker" placeholder="Date of birth" type="text" class="datepicker">
+                         <label for="datePicker">Date of Birth</label>
                     </div>
 
                     <div class="row">
-                        <input placeholder="Confirm Password" id="login-password-confirm" type="text">
-                        <label for="first_name">Confirm Password</label>
+                        <input placeholder="Password" id="register-password" type="password">
+                        <label for="register-password">Password</label>
+                    </div>
+
+                    <div class="row">
+                        <input placeholder="Confirm Password" id="register-password-confirm" type="password">
+                        <label for="register-password-confirm">Confirm Password</label>
                     </div>
 
                     <div class="row center-align">
-                        <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                        <button id="registerSubmitButton" class="btn waves-effect waves-light" type="submit" name="action">Submit
                             <i class="material-icons right">send</i>
                         </button>
                     </div>
-                
                 </form>
-
             </div>
-
         </div>
-
         <div class="col s0 m2 xl3"></div>
-
     </div>
-
 </div>
 
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
 
+    $( document ).ready(function() {
 
+        $('#registerSubmitButton').click(function(event) {
+            event.preventDefault();
+            if($('#register-password').val() !==  $('#register-password-confirm').val()) {
+                alert('Passwords do not match');
+                return false;
+            }
+            else if($('#register-username').val() === '' || $('#register-email').val() === '' || $('#register-forename').val() === '' || 
+            $('#register-surname').val() === '' || $('#datePicker').val() === '' || 
+            $('#register-password').val() === '' || $('#register-password-confirm').val() === '') 
+            {
+                alert('Fields may not be blank');
+                return false;
+            }
+            else {
+                axios({
+                    method: 'post',
+                    url: '/account/register',
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    data: {
+                        username: $('#register-username').val(),
+                        emailAddress: $('#register-email').val(),
+                        forename: $('#register-forename').val(),
+                        surname: $('#register-surname').val(),
+                        dateOfBirth: $('#datePicker').val(),
+                        password: $('#register-password').val()
+                    }
+                })
+                .then(response => {
+                    if(response.status === 201) {
+                        alert('account created');
+                        window.location.href = '/';
+                    }
+                    else {
+                        return false;
+                    }
+                })
+                .catch(err => {
+                    alert(err);
+                    return false;
+                });
+            }
+        });
+    })
 
-
+</script>

@@ -1,3 +1,5 @@
+const accountLogic = require('../modules/businessLogic/accountLogic');
+
 const router = require('express').Router();
 
 router.get('/', (req, res) => {
@@ -13,8 +15,11 @@ router.get('/login', (req, res) => {
 });
 
 router.post('/login', (req, res) => {
-
-	res.send(201);
+	accountLogic.login(req)
+		.then((token) => {
+			res.send(200, token);
+		})
+		.catch(err => console.log(err));
 
 });
 
@@ -27,21 +32,14 @@ router.get('/register', (req, res) => {
 
 router.post('/register', (req, res) => {
 
-	res.send(201);
-	
-});
-
-/* Logout Routes */
-router.get('/logout', (req, res) => {
-
-	res.send('logout');
-
-});
-
-router.post('/logout', (req, res) => {
-
-	res.send(201);
-	
+	accountLogic.register(req)
+		.then(() => {
+			res.sendStatus(201);
+		})
+		.catch(err => {
+			console.log(err);
+			res.sendStatus(500);
+		});	
 });
 
 module.exports = router;

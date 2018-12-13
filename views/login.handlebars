@@ -11,30 +11,66 @@
                 </div>
                 <form>
                     <div class="row">
-                        <input placeholder="Email" id="login-email" type="text">
-                        <label for="first_name">Email</label>
+                        <input placeholder="Username" id="login-username" type="text">
+                        <label for="login-username">Username</label>
                     </div>
                     
                     <div class="row">
-                        <input placeholder="Password" id="login-password" type="text">
-                        <label for="first_name">Password</label>
+                        <input placeholder="Password" id="login-password" type="password">
+                        <label for="login-password">Password</label>
                     </div>
 
                     <div class="row center-align">
-                        <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                        <button id="loginSubmitButton" class="btn waves-effect waves-light" type="submit" name="action">Submit
                             <i class="material-icons right">send</i>
                         </button>
                     </div>
                 </form>
             </div>
         </div>
-
         <div class="col s0 m3 xl4"></div>
-
     </div>
-
 </div>
 
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+
+    $( document ).ready(function() {
+
+        $('#loginSubmitButton').click(function(event) {
+            event.preventDefault();
+            if($('#login-username').val() === '' || $('#login-password').val() === '') {
+                alert('Both an username and password must be entered');
+                return false;
+            }
+            else {
+                axios({
+                    method: 'post',
+                    url: '/account/login',
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    data: {
+                        username: $('#login-username').val(),
+                        password: $('#login-password').val()
+                    }
+                })
+                .then(response => {
+                    if(response.status === 200) {
+                        sessionStorage.setItem('scvAuth', response.data);
+                        let expires = new Date();
+                        expires.setDate(expires.getDate() + 1);
+                        document.cookie = `scvAuth=${response.data}; expires=${expires} ;path=/`
+                        window.location.href = '/';
+                    }
+                })
+                .catch(err => alert('an error occured'));
+            }
+        });
+    })
+  
+</script>
 
 
 

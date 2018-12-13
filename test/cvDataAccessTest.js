@@ -545,7 +545,7 @@ describe('Account Data Access Tests', () => {
 					.then(() => {
 						cvDataAccess.CVlistAccess()
 							.then((cvArray) => {
-								assert(cvArray.length > 2);
+								assert(cvArray.length >= 2);
 								CV.findOneAndDelete({emailAddress: 'ArrayTest1@test.co.uk'})
 									.then(() => {
 										CV.findOneAndDelete({emailAddress: 'ArrayTest2@test.co.uk'})
