@@ -4,14 +4,46 @@
       <a href="/" class="brand-logo">Student CVs</a>
       <a href="#" data-target="mobile-menu" class="sidenav-trigger"><i class="material-icons">menu</i></a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li>
-          <a href="/login"><i class="material-icons right">lock</i><strong>Login </strong></a> 
-        </li>
+          <li><a id="registerButton" href="/account/register"><i class="material-icons right">group_add</i><strong>Register </strong></a></li>
+          <li><a id="loginButton" href="/account/login"><i class="material-icons right">lock</i><strong>Login </strong></a> </li>
+          <li><a id="logoutButton"><i class="material-icons right">arrow_back</i><strong>Logout </strong></a></li>
+          <li><a id="createCvButton" href="/cv/create"><i class="material-icons right">create</i><strong>Create CV </strong></a></li>
+          <li><a id="myCvButton" href="/cv/edit"><i class="material-icons right">account_box</i><strong>My Cv </strong></a></li>
+
       </ul>
     </div>
   </div>
 </nav>
 
 <ul class="sidenav" id="mobile-menu">
+  <li><a href="/account/register"><i class="material-icons right">group_add</i><strong>Register </strong></a> </li>
   <li><a href="/login"><i class="material-icons right">lock</i><strong>Login </strong></a> </li>
 </ul>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+<script>
+
+  $( document ).ready(function() {
+    $("#logoutButton").on('click', function() {
+      sessionStorage.removeItem('scvAuth');
+      document.cookie = 'scvAuth=; expires=Thu, 01 Jan 1970 00:00:01 GMT;'
+      if(location.pathname === '/cv/edit') {
+        $(location).attr('href', '/')
+      }
+      else {
+        location.reload()
+      }
+      
+    });
+
+    $("#registerButton").toggle(!('scvAuth' in sessionStorage));
+    $("#loginButton").toggle(!('scvAuth' in sessionStorage));
+    $("#logoutButton").toggle(('scvAuth' in sessionStorage));
+    $("#createCvButton").toggle(('scvAuth' in sessionStorage));
+    $("#myCvButton").toggle(('scvAuth' in sessionStorage));
+
+
+  });
+
+</script>

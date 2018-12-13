@@ -8,3 +8,35 @@ body {
   main {
     flex: 1 0 auto;
   }
+
+  .textBackground {
+
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .cvImage {
+    padding-left: 10px;
+    max-width: 60px;
+    max-height: 60px;
+  }
+
+  .cvText {
+    color: white;
+  }
+
+  .largeTextBox {
+    background-color: lightgray;
+    min-height: 33%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 5px;
+  }
+
+  .cvButton {
+    margin-bottom: 25px;
+  }

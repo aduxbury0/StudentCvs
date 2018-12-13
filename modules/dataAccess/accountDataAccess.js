@@ -14,7 +14,7 @@ const accountAccess = {
 					}
 
 				})
-				.catch(err => reject('Registration Database error'));
+				.catch(() => reject('Registration Database error'));
 		});
 	},
 
@@ -58,6 +58,19 @@ const accountAccess = {
 						reject(err);
 					});
 			}
+		});
+	},
+
+	addCVtoAccount(username, cvId) {
+		return new Promise((resolve, reject) => {
+			User.findOneAndUpdate({username: username}, {cv: cvId})
+				.then((foundUser) => {
+					if(foundUser === null) reject('No user found with username');
+					else {
+						resolve('CV added');
+					}
+				})
+				.catch(() => reject('Database access error'));
 		});
 	}
 

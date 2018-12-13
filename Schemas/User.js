@@ -10,7 +10,12 @@ const UserSchema = new Schema({
 		surname: String,
 		dateOfBirth: String,
 		emailAddress: String
+	},
+	cv: {
+		type: String,
+		default: ''
 	}
+
 });
 
 const user = mongoose.model('User', UserSchema);

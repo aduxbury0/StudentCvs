@@ -1,6 +1,6 @@
 const CV = require('../../Schemas/CV');
 
-module.exports = cvDataAccess = {
+module.exports = {
 
 	createCV(inputCv) {
 		return new Promise(async (resolve, reject) => {
@@ -77,7 +77,7 @@ module.exports = cvDataAccess = {
 
 			try{
 
-				updatedCV = await CV.findOneAndUpdate({emailAddress: inputData.emailAddress}, {
+				const updatedCV = await CV.findOneAndUpdate({emailAddress: inputData.emailAddress}, {
 
 					forename: inputData.forename,
 					surname: inputData.surname,

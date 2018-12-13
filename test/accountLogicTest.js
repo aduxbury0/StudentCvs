@@ -181,4 +181,57 @@ describe('Account Logic Tests', () => {
 
     });
 
+    it('adds a CV to an account', (done) => {
+        const newUser = new User({    
+			username: 'Android18',
+			password: 'hashedPassword',
+			userInfo: {
+				forename: 'Alex',
+				surname: 'Duxbury',
+				dateOfBirth: '17/12/1995',
+				emailAddress: 'test@testing.ac.uk'
+			}
+        });
+        
+        newUser.save()
+        .then((savedUser) => {
+
+            jwt.sign(savedUser.toJSON(), keys.jwtSecret, (err, token) => {
+                if(err) console.log(err);
+                else {
+                    accountLogic.addCVtoAccount(token, 'eishf90h0LfG40fh34jrf')
+                    .then((response) => {
+                        assert(response === 'CV added');
+                        User.findByIdAndDelete(savedUser._id)
+                        .then(() => done())
+                        .catch(err => console.log(err));
+                    })
+                    .catch(err => console.log(err));
+                }
+            });
+
+        })
+        .catch(err => console.log(err));
+    });
+
+    it('fails on incorrect username', (done) => {
+
+        wrongUsername = {
+            username: 'wrongUser'
+        }
+
+        jwt.sign(wrongUsername, keys.jwtSecret, (err, token) => {
+            if(err) console.log(err);
+            else {
+                accountLogic.addCVtoAccount(token, 'eishf90h0LfG40fh34jrf')
+                .then(() => {})
+                .catch(err => {
+                    assert(err === 'No user found with username');
+                    done();
+
+                })
+            }
+        });
+    });
+
 });

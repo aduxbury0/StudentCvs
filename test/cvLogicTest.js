@@ -35,6 +35,36 @@ describe('CV Business Logic', () => {
 			.catch(err => console.log(err));
 	});
 
+	it('checks if error when missing required field', (done) => {
+
+		const req = {
+			body: {
+				forname: '',
+				surname: '',
+				emailAddress: '',
+				dateOfBirth: '',
+				address: {
+					houseNumber: '',
+					road: '',
+					city: '',
+					county: '',
+					country: ''
+				},
+				education: '',
+				workExperience: '',
+				personalProfile: ''
+
+			}
+		}
+
+		cvLogic.createCV(req)
+		.then(() => {})
+		.catch(err => {
+			assert(err === 'Incorrect input for forename')
+			done();
+		});
+	});
+
 	it('checks whether CV is edited', (done) => {
 
 		inputCV = new CV({
@@ -248,4 +278,5 @@ describe('CV Business Logic', () => {
 			})
 			.catch(err => console.log(err));
 	});
+
 });

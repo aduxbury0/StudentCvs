@@ -1,38 +1,79 @@
 const router = require('express').Router();
 const cvLogic = require('../modules/businessLogic/cvLogic');
+const jwt = require('jsonwebtoken');
+const keys = require('../keys/keys');
+const accountLogic = require('../modules/businessLogic/accountLogic');
 
 
 router.get('/create', (req, res) => {
 
-	res.render('cvs/create');
-
+	if(req.cookies.scvAuth !== 'undefined') {
+		jwt.verify(req.cookies.scvAuth, keys.jwtSecret, (err) => {
+			if(err) res.redirect('/account/login');
+			else {
+				res.render('cvs/create');
+			}
+		})
+	}
 });
 
 router.post('/create', (req, res) => {
 
-	cvLogic.createCV(req)
-		.then((newCv) => {
-			res.redirect(`/cv/${newCV._id}`);
+	if(req.cookies.scvAuth !== 'undefined') {
+		jwt.verify(req.cookies.scvAuth, keys.jwtSecret, (err) => {
+			if(err) res.redirect('/account/login');
+			else {
+				cvLogic.createCV(req)
+					.then((newCv) => {
+						accountLogic.addCVtoAccount(req.cookies.scvAuth, newCv._id)
+							.then(() => {
+								res.send(201, newCv)
+							})
+							.catch(err => console.log(err));
+					})
+					.catch(err => console.log(err));
+			}
+		});
+	}
 
-		})
-		.catch(err => console.log(err));
+	
 })
 
 router.get('/edit', (req, res) => {
-    
-	res.render('cvs/edit');
-
+	if(req.cookies.scvAuth !== 'undefined') {
+		jwt.verify(req.cookies.scvAuth, keys.jwtSecret, (err, decoded) => {
+			if(err) res.redirect('/account/login');
+			else {
+				const fakereq = {
+					params: {
+						id: decoded.cv
+					}
+				}
+				cvLogic.singleCv(fakereq)
+					.then((foundCv) => {
+						res.render('cvs/edit', {cv: foundCv});
+					})
+					.catch(err => console.log(err));
+				
+			}
+		});
+	}
+	else{
+		console.log('No Cookie');
+	}
 });
 
 router.post('/edit', (req, res) => {
-	cvLogic.editCV(req)
-		.then(newCV => {
-
-
-		})
-		.catch(err => console.log(err))
-	res.sendStatus(200);
-
+	jwt.verify(req.cookies.scvAuth, keys.jwtSecret, (err) => {
+		if(err) res.redirect('/account/login');
+		else {
+			cvLogic.editCV(req)
+				.then(newCv => {
+					res.send(200, newCv);
+				})
+				.catch(err => console.log(err));
+		}
+	});
 });
 
 router.get('/viewall', (req, res) => {
@@ -46,9 +87,11 @@ router.get('/viewall', (req, res) => {
 })
 
 router.get('/:id', (req, res) => {
-
-	res.render('cvs/view');
-    
+	cvLogic.singleCv(req)
+		.then((foundCV) => {
+			res.render('cvs/view', {cv: foundCV});
+		})
+		.catch(err => console.log(err));
 });
 
 module.exports = router;

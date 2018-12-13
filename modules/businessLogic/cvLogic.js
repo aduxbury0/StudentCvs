@@ -72,21 +72,21 @@ module.exports = {
 		return new Promise((resolve, reject) => {
 			
 			let id = '';
-			
 			if(typeof req.params.id !== 'undefined' && req.params.id !== '') {
 				id = req.params.id;
+				cvAccess.specificCVAccess(id)
+					.then((foundCV) => {
+						resolve(foundCV);
+					})
+					.catch(err => {
+						reject(err);
+					})
 			}
 			else {
 				reject('no ID provided');
 			}
 			
-			cvAccess.specificCVAccess(id)
-				.then((foundCV) => {
-					resolve(foundCV);
-				})
-				.catch(err => {
-					reject(err);
-				})
+
 		});
 	},
 

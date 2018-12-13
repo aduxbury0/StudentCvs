@@ -7,62 +7,62 @@
         <div class="col s12 m6 xl8">
             <div class="card-panel white">
                 <div class="row center-align">
-                    <h5 class="bold">Create CV</h5>
+                    <h5 class="bold">Edit CV</h5>
                 </div>
                 <form>
                     <h6>General Information</h6>
                     <div class="row">
                         <div class="col s12 xl6">
-                            <input placeholder="Forename" id="create-forename" type="text">
-                            <label for="create-forename">Forename</label>
+                            <input placeholder="Forename" id="edit-forename" type="text" value={{cv.forename}}>
+                            <label for="edit-forename">Forename</label>
                         </div>
 
                         <div class="col s12 xl6">
-                            <input placeholder="Surname" id="create-surname" type="text">
-                            <label for="create-surname">Surname</label>
+                            <input placeholder="Surname" id="edit-surname" type="text" value={{cv.surname}}>
+                            <label for="edit-surname">Surname</label>
                         </div>
                     </div>
                     
                     <div class="row">
                         <div class="col s12 xl6">
-                            <input placeholder="Email" id="create-email" type="text">
-                            <label for="create-email">Email Address</label>
+                            <input placeholder="Email" id="edit-email" type="text" value={{cv.emailAddress}}>
+                            <label for="edit-email">Email Address</label>
                         </div>
 
                         <div class="col s12 xl6">
-                            <input placeholder="DateOfBirth" id="create-dob" type="text" class="datepicker">
-                            <label for="create-dob">Date of Birth</label>
+                            <input placeholder="DateOfBirth" id="edit-dob" type="text" class="datepicker" value={{cv.dateOfBirth}}>
+                            <label for="edit-dob">Date of Birth</label>
                         </div>
                     </div>
                     <h6>Address</h6>
                     <div class="row">
                         <div class="col s12 xl6">
-                            <input placeholder="HouseNumber" id="create-houseNum" type="text">
-                            <label for="create-houseNum">House Number</label>
+                            <input placeholder="HouseNumber" id="edit-houseNum" type="text" value={{cv.address.houseNumber}}>
+                            <label for="edit-houseNum">House Number</label>
                         </div>
 
                         <div class="col s12 xl6">
-                            <input placeholder="RoadName" id="create-roadName" type="text">
-                            <label for="create-dob">Road Name</label>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col s12 xl6">
-                            <input placeholder="City" id="create-city" type="text">
-                            <label for="create-city">City</label>
-                        </div>
-
-                        <div class="col s12 xl6">
-                            <input placeholder="County" id="create-county" type="text">
-                            <label for="create-county">County</label>
+                            <input placeholder="RoadName" id="edit-roadName" type="text" value={{cv.address.road}}>
+                            <label for="edit-dob">Road Name</label>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="col s12 xl6">
-                            <input placeholder="Country" id="create-country" type="text">
-                            <label for="create-country">Country</label>
+                            <input placeholder="City" id="edit-city" type="text" value={{cv.address.city}}>
+                            <label for="edit-city">City</label>
+                        </div>
+
+                        <div class="col s12 xl6">
+                            <input placeholder="County" id="edit-county" type="text" value={{cv.address.county}}>
+                            <label for="edit-county">County</label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col s12 xl6">
+                            <input placeholder="Country" id="edit-country" type="text" value={{cv.address.country}}>
+                            <label for="edit-country">Country</label>
                         </div>
                     </div>
 
@@ -71,8 +71,8 @@
                     <div class="row">
                         <div class="input-field col xl12 s12">
                             <textarea placeholder="Education"
-                            id="create-education" class="materialize-textarea"></textarea>
-                            <label for="create-education"></label>
+                            id="edit-education" class="materialize-textarea">{{cv.education}}</textarea>
+                            <label for="edit-education"></label>
                         </div>
                     </div>
 
@@ -83,8 +83,8 @@
                     <div class="row">
                         <div class="input-field col xl12 s12">
                             <textarea placeholder="Previous Employment"
-                            id="create-employment" class="materialize-textarea"></textarea>
-                            <label for="create-employment"></label>
+                            id="edit-employment" class="materialize-textarea">{{cv.workExperience}}</textarea>
+                            <label for="edit-employment"></label>
                         </div>
                     </div>
 
@@ -94,15 +94,15 @@
                     </p>
                     <div class="row">
                         <div class="input-field col xl12 s12">
-                            <textarea placeholder="Previous Employment"
-                            id="create-employment" class="materialize-textarea"></textarea>
-                            <label for="create-employment"></label>
+                            <textarea placeholder="Personal Profile"
+                            id="edit-profile" class="materialize-textarea">{{cv.personalProfile}}</textarea>
+                            <label for="edit-profile"></label>
                         </div>
                     </div>
                     
 
                     <div class="row center-align">
-                        <button class="btn waves-effect waves-light" type="submit" name="action">Submit Changes
+                        <button id="submitCv" class="btn waves-effect waves-light" type="submit" name="action">Submit
                             <i class="material-icons right">send</i>
                         </button>
                     </div>
@@ -116,6 +116,72 @@
 
 </div>
 
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+
+    $( document ).ready(function() {
+
+        $('#submitCv').click(function(event) {
+            event.preventDefault();
+            if( $('#edit-forename').val() === '' || 
+                $('#edit-surname').val() === '' || 
+                $('#edit-email').val() === '' || 
+                $('#edit-dob').val() === '' || 
+                $('#edit-houseNum').val() === '' || 
+                $('#edit-roadName').val() === '' || 
+                $('#edit-city').val() === '' ||
+                $('#edit-county').val() === '' ||
+                $('#edit-country').val() === '' ||
+                $('#edit-education').val() === '' ||
+                $('#edit-employment').val() === '' ||
+                $('#edit-profile').val() === '') 
+            {
+                alert('Fields may not be blank');
+                return false;
+            }
+            else {
+                axios({
+                    method: 'post',
+                    url: '/cv/edit',
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    data: {
+                        forename: $('#edit-forename').val(),
+                        surname: $('#edit-surname').val(),
+                        emailAddress: $('#edit-email').val(),
+                        dateOfBirth: $('#edit-dob').val(),
+                        houseNumber: $('#edit-houseNum').val(),
+                        road: $('#edit-roadName').val(),
+                        city: $('#edit-city').val(),
+                        county: $('#edit-county').val(),
+                        country: $('#edit-country').val(),
+                        education: $('#edit-education').val(),
+                        workExperience: $('#edit-employment').val(),
+                        personalProfile: $('#edit-profile').val()
+                    }
+                })
+                .then(response => {
+                    if(response.status === 200) {
+
+                        alert('CV edited successfully');
+                        window.location.href = `/cv/${response.data._id}`;
+                    }
+                    else {
+                        return false;
+                    }
+                })
+                .catch(err => {
+                    alert(err);
+                    return false;
+                });
+            }
+        });
+    });
+
+</script>
 
 
 

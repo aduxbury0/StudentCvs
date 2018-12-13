@@ -10,7 +10,7 @@ module.exports = {
 		return new Promise((resolve, reject) => {
 			const body = req.body;
 
-			emailEnding = body.emailAddress.substring((body.emailAddress.length-6),(body.emailAddress.length))
+			const emailEnding = body.emailAddress.substring((body.emailAddress.length-6),(body.emailAddress.length))
 			if(emailEnding !== '.ac.uk') {
 				reject('Email must be a UK academic email address');
 			}
@@ -21,7 +21,7 @@ module.exports = {
 					
 					hashedPassword = hash;
                 
-					newUser = {
+					const newUser = {
 						username: body.username,
 						password: hashedPassword,
 						userInfo: {
@@ -37,7 +37,7 @@ module.exports = {
 							resolve(createdUser);
 						})
 						.catch(err => reject(err));
-				})
+				});
 			});           
 		});
 	},
@@ -47,23 +47,34 @@ module.exports = {
 			const body = req.body
 			accountAccess.singleAccount(body.username)
 				.then((foundUser) => {
-						bcrypt.compare(body.password, foundUser.password, (err, isMatch) => {
-							if(err) reject(err);
-							if(isMatch) {
-								const token = jwt.sign(foundUser.toJSON(), keys.jwtSecret, {
-									expiresIn: '24h'
-								});
-								resolve(token);
-							}
-							else{
-								reject('Incorrect Username or Password')
-							}
+					bcrypt.compare(body.password, foundUser.password, (err, isMatch) => {
+						if(isMatch) {
+							const token = jwt.sign(foundUser.toJSON(), keys.jwtSecret, {
+								expiresIn: '24h'
+							});
+							resolve(token);
+						}
+						else{
+							reject('Incorrect Username or Password')
+						}
 	
-						});
+					});
 				})
 				.catch(err => reject(err));
-		})
+		});
 	},
 
 
+	addCVtoAccount(cookie, cvId) {
+		return new Promise((resolve, reject) => {
+			jwt.verify(cookie, keys.jwtSecret, (err, decoded) => {
+				if (err) reject('error decoding cookie');
+				else {
+					accountAccess.addCVtoAccount(decoded.username, cvId)
+						.then((response) => resolve(response))
+						.catch(err => reject(err));
+				}
+			});	
+		});
+	}
 }
