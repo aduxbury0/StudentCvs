@@ -4,6 +4,7 @@
   "description": "A sharing platform for student CVs",
   "main": "app.js",
   "scripts": {
+    "start": "node app.js",
     "test": "nyc mocha --timeout 5000",
     "lint": "eslint ./",
     "lintfix": "eslint ./ --fix"
