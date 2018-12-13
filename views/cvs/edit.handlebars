@@ -1,3 +1,4 @@
+<title>Edit CV</title>
 <div class="container" style="padding-top: 100px;">
 
     <div class="row">
@@ -165,8 +166,6 @@
                 })
                 .then(response => {
                     if(response.status === 200) {
-
-                        alert('CV edited successfully');
                         window.location.href = `/cv/${response.data._id}`;
                     }
                     else {
